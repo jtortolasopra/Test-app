@@ -1,0 +1,52 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # 🔹 CI: Integración Continua
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚀 Checkout del código
+        uses: actions/checkout@v4
+
+      - name: 📦 Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: 📌 Instalar dependencias
+        run: npm ci  # Usa `npm install` si no tienes package-lock.json
+
+      - name: 🔍 Linting (ESLint)
+        run: npm run lint  # Asegúrate de que tu proyecto tenga este script
+
+      - name: 🧪 Ejecutar tests
+        run: npm test  # Debes tener tests configurados
+
+      - name: 🏗️ Compilar el proyecto (opcional)
+        run: npm run build
+
+  # 🔹 CD: Despliegue Continuo
+  cd:
+    needs: ci  # Solo se ejecuta si CI pasa correctamente
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚀 Checkout del código
+        uses: actions/checkout@v4
+
+      - name: 📦 Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: 🚀 Desplegar en Render
+        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
