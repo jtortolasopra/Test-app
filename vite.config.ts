@@ -7,6 +7,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: 'https://test-app-3fim.onrender.com/',
   plugins: [
     vue(),
     vueJsx(),
