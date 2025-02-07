@@ -1,21 +1,21 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 
 const count = ref(0);
 
 const increment = () => {
-  count.value++;
+  count.value += 1;
 };
 </script>
 
 <template>
   <div>
     <h1>Contador: {{ count }}</h1>
-    <button @click="increment">Incrementar</button>
+    <button type="button" @click="increment">Incrementar</button>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="css">
 button {
   background: blue;
   color: white;
