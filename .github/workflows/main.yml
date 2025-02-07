@@ -37,7 +37,7 @@ jobs:
       - name: 📢 Notificar a Telegram
         if: always()  # Esto hace que se envíe el mensaje siempre, incluso si falla
         run: |
-          MESSAGE="🚀 *GitHub Actions* ha terminado.
+          MESSAGE="🚀 *GitHub Actions* ha terminado. Diegoooo
           - 🆔 *Repo:* ${{ github.repository }}
           - 🔖 *Branch:* ${{ github.ref }}
           - ✅ *Estado:* ${{ job.status }}
