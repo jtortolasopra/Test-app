@@ -26,10 +26,10 @@ jobs:
         run: npm ci  # Usa `npm install` si no tienes package-lock.json
 
       - name: 🔍 Linting (ESLint)
-        run: npm ci
+        run: npm run lint
 
       - name: 🧪 Ejecutar tests
-        run: npm ci  # Debes tener tests configurados
+        run: npm run test  # Debes tener tests configurados
 
       - name: 🏗️ Compilar el proyecto (opcional)
         run: npm run build
