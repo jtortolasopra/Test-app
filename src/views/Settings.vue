@@ -5,8 +5,8 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
-  name: 'Settings'
+  name: 'Settings-nav'
 };
 </script>
