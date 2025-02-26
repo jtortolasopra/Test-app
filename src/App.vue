@@ -1,26 +1,66 @@
-<script setup lang="ts">
-import { ref } from "vue";
-
-const count = ref(0);
-
-const increment = () => {
-  count.value += 1;
-};
-</script>
-
 <template>
-  <div>
-    <h1>Contador: {{ count }}</h1>
-    <button type="button" @click="increment">Incrementar en 1</button>
+  <div id="app">
+    <nav>
+      <ul>
+        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/settings">Settings</router-link></li>
+        <li><router-link to="/users">Users</router-link></li>
+      </ul>
+    </nav>
+    <main>
+      <router-view />
+    </main>
   </div>
 </template>
 
-<style scoped lang="css">
-button {
-  background: blue;
+<script>
+export default {
+  name: 'App'
+};
+</script>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  width: 100%;
+  background-color: #333;
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+li {
+  display: inline;
+}
+
+a {
   color: white;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+a:hover {
+  background-color: #555;
+}
+
+main {
+  margin-top: 60px;
+  padding: 20px;
 }
 </style>

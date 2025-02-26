@@ -19,5 +19,9 @@ export default defineConfig({
   },
   preview: {
     allowedHosts: ['test-app-3fim.onrender.com']
+  },
+  server: {
+    host: '0.0.0.0',
+    port: 10000
   }
 })
