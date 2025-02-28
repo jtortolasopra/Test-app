@@ -55,14 +55,14 @@ export default {
       showApiModal: false,
       userData: undefined,
       loading: false,
-      error: undefined,
+      error: undefined as string | undefined,
     }
   },
   methods: {
     async fetchAndShowApiData() {
       this.showApiModal = true
       this.loading = true
-      this.error = undefined
+      this.error = 'string'
 
       try {
         const response = await fetch('https://randomuser.me/api/')
