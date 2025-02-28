@@ -41,7 +41,7 @@ import AboutUsModal from '../components/modals/AboutUsModal.vue'
 import RandomUserModal from '../components/modals/RandomUserModal.vue'
 
 export default {
-  name: 'Home-nav',
+  name: 'HomeView',
   components: {
     FeatureCard,
     GettingStartedModal,
@@ -53,16 +53,16 @@ export default {
       showFeatureModal: false,
       showAboutModal: false,
       showApiModal: false,
-      userData: null,
+      userData: undefined,
       loading: false,
-      error: null,
+      error: undefined,
     }
   },
   methods: {
     async fetchAndShowApiData() {
       this.showApiModal = true
       this.loading = true
-      this.error = null
+      this.error = undefined
 
       try {
         const response = await fetch('https://randomuser.me/api/')
