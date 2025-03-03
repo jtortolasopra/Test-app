@@ -60,6 +60,7 @@ export default {
   },
   methods: {
     async fetchAndShowApiData() {
+      if (this.loading) return
       this.showApiModal = true
       this.loading = true
       this.error = undefined
