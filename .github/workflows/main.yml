@@ -23,7 +23,7 @@ jobs:
           node-version: '18'
 
       - name: 📌 Instalar dependencias
-        run: npm ci  # Usa `npm install` si no tienes package-lock.json
+        run: npm i  # Usa `npm install` si no tienes package-lock.json
 
       - name: 🔍 Linting (ESLint)
         run: npm run lint
