@@ -66,11 +66,11 @@ export default {
       this.error = undefined
 
       try {
-        const response = await fetch('https://randomuser.me/api/')
-        const data = await response.json()
-        this.userData = data.results[0]
+        const response = await fetch('http://localhost:3000')
+        const data = await response.text()
+        this.userData = data
       } catch (err) {
-        this.error = 'Failed to fetch user data'
+        this.error = 'Failed to fetch data from backend'
         console.error(err)
       } finally {
         this.loading = false
